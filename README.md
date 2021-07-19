@@ -1,4 +1,6 @@
-# Book Catalog API - Spring Boot, React, MySQL
+Learning Spring with JPA/Hibernate. React frontend and MySQL database.
+
+# Book Catalog API 
 
 ## Home
 
