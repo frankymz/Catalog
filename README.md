@@ -1,6 +1,6 @@
 Learning Spring with JPA/Hibernate.
 
-# Book Catalog API 
+# Book Catalog API Model URI's
 
 ## Home
 
