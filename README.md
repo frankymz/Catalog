@@ -1,4 +1,4 @@
-Learning Spring with JPA/Hibernate.
+Learning Spring with JPA/Hibernate. Will add the URI's in the future.
 
 # Book Catalog API Model URI's
 
