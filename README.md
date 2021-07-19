@@ -1,4 +1,4 @@
-Learning Spring with JPA/Hibernate. Frontend is made with React.js and database is on MySQL. 
+Learning Spring with JPA/Hibernate.
 
 # Book Catalog API 
 
