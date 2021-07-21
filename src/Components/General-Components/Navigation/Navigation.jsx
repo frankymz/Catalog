@@ -66,9 +66,10 @@ export default function Nav() {
             borderBottom: "1px solid black",
             justifyContent: "center",
             margin: "auto",
-            height: "18px",
+            height: "25px",
             alignItems: "center",
             textAlign: "left",
+            fontSize:"20px"
           }}
         >
           Welcome to Catalog!

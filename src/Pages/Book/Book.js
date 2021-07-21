@@ -7,6 +7,10 @@ import {
   useParams,
 } from "react-router-dom";
 
+/*
+Search for book by using the id.
+Output image, description, price
+*/
 export default function Book() {
   let { bookid } = useParams();
   return (

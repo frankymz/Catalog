@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Panel from "../../Components/Home-Components/Carousel/Coursel";
 import "./Home.css";
+import LeaderBoard from "../../Components/Home-Components/Leaderboard/Leaderboard";
 
 function Home() {
   return (
     <React.Fragment>
       <div
         style={{
-          margin: "auto",
-          maxWidth: "1040px",
-          
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
         }}
       >
-        <div>
-          <Panel />
-          <Panel />
+        <div style={{ marginRight: "15px" }}>
+          <Panel genre="Sci-fi" />
+          <Panel genre="Fiction" />
         </div>
-        <div>121221{/* insert sideboard here */}</div>
+        <div>
+          <LeaderBoard />
+        </div>
       </div>
     </React.Fragment>
   );
