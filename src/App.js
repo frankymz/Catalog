@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import FourOhFour from "./Pages/404/FourOhFour";
 import Category from "./Pages/Category/Category";
 import Footer from "./Components/General-Components/Footer/Footer";
+import Book from "./Pages/Book/Book";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Nav />
         <Switch>
           <Route exact strict path="/" component={Home} />
-          <Route path="/" component={Category} />
+          <Route exact strict path="/:category" component={Category} />
+          <Route strict path="/book/:bookid" component={Book}/>
           <Route component={FourOhFour} />
         </Switch>
         <Footer />
