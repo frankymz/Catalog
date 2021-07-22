@@ -4,6 +4,8 @@ import "./Home.css";
 import LeaderBoard from "../../Components/Home-Components/Leaderboard/Leaderboard";
 
 function Home() {
+
+  
   return (
     <React.Fragment>
       <div

@@ -84,7 +84,7 @@ export default function Panel(props) {
   const [state, setState] = useState({
     products: [],
   });
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     Service.getProducts().then((response) => {
