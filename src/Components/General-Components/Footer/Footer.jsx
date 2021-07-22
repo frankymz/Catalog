@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <React.Fragment>
       <div
-        style={{ margin: "0 auto", justifyContent: "center", display: "flex" }}
+        style={{ margin: "auto", justifyContent: "center", display: "flex", marginTop:"90px" }}
       >
         <div
           style={{
@@ -17,7 +17,7 @@ export default function Footer() {
             padding: "10px 5px",
             bottom: 0,
             width: "100%",
-            position: "absolute",
+            position: "relative",
           }}
         >
           <div>Francisco M</div>

@@ -19,6 +19,10 @@ function Home() {
         <div style={{ marginRight: "15px" }}>
           <Panel genre="Sci-fi" />
           <Panel genre="Fiction" />
+          <Panel genre="Manga" />
+          <Panel genre="Romance" />
+          <Panel genre="Literature" />
+          <Panel genre="Science" />
         </div>
         <div>
           <LeaderBoard />

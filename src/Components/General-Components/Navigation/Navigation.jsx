@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navigation.css";
+import Modal from "./Modal";
 
 export default function Nav() {
+  const [modal, setModal] = useState(false);
+
+  function openModal() {
+    setModal((prev) => !prev);
+  }
+
   return (
     <React.Fragment>
+      <Modal modal={modal} setModal={setModal} />
       <div className="nav">
         <div
           style={{
@@ -15,10 +23,19 @@ export default function Nav() {
             alignItems: "center",
           }}
         >
-            
-          <button className="buttonStyle" onClick={()=>{window.location.replace('/')}}style={{ color:"#2e51a2", fontSize: "40px", fontWeight: "600" }}>Catalog</button>
+          <button
+            className="buttonStyle"
+            onClick={() => {
+              window.location.replace("/");
+            }}
+            style={{ color: "#2e51a2", fontSize: "40px", fontWeight: "600" }}
+          >
+            Catalog
+          </button>
           <div>
-            <button style={{ padding: "3px 5px" }}>Login or Sign Up</button>
+            <button onClick={openModal} style={{ padding: "3px 5px" }}>
+              Login or Sign Up
+            </button>
           </div>
         </div>
         <div
@@ -38,25 +55,37 @@ export default function Nav() {
         >
           <div style={{ alignItems: "left", display: "flex", padding: "10px" }}>
             <Link to="/Sci-Fi">
-              <button className="buttonStyle" style={{ marginRight: "20px" }}>Sci-Fi </button>
+              <button className="buttonStyle" style={{ marginRight: "20px" }}>
+                Sci-Fi{" "}
+              </button>
             </Link>
 
             <Link to="/Fiction">
-              <button className="buttonStyle" style={{ marginRight: "20px" }}>Fiction </button>
+              <button className="buttonStyle" style={{ marginRight: "20px" }}>
+                Fiction{" "}
+              </button>
             </Link>
 
             <Link to="/Anime">
-              <button className="buttonStyle" style={{ marginRight: "20px" }}>Manga </button>
+              <button className="buttonStyle" style={{ marginRight: "20px" }}>
+                Manga{" "}
+              </button>
             </Link>
 
             <Link to="/Romance">
-              <button className="buttonStyle" style={{ marginRight: "20px" }}>Romance </button>
+              <button className="buttonStyle" style={{ marginRight: "20px" }}>
+                Romance{" "}
+              </button>
             </Link>
             <Link to="/Literature">
-              <button className="buttonStyle" style={{ marginRight: "20px" }}>Literature</button>
+              <button className="buttonStyle" style={{ marginRight: "20px" }}>
+                Literature
+              </button>
             </Link>
             <Link to="/Science">
-              <button className="buttonStyle" style={{ marginRight: "20px" }}>Science</button>
+              <button className="buttonStyle" style={{ marginRight: "20px" }}>
+                Science
+              </button>
             </Link>
           </div>
         </div>
@@ -69,7 +98,7 @@ export default function Nav() {
             height: "25px",
             alignItems: "center",
             textAlign: "left",
-            fontSize:"20px"
+            fontSize: "20px",
           }}
         >
           Welcome to Catalog!
