@@ -87,7 +87,7 @@ export default function Panel(props) {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    Service.getProducts().then((response) => {
+    Service.getBooks().then((response) => {
       console.log(response.data);
       setState({ products: response.data });
       setLoading(false);

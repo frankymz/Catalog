@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Panel from "../../Components/Home-Components/Carousel/Coursel";
+import Panel from "../../Components/Home-Components/Carousel/Carousel";
 import "./Home.css";
 import LeaderBoard from "../../Components/Home-Components/Leaderboard/Leaderboard";
 
