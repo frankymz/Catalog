@@ -2,7 +2,7 @@ import React from "react";
 import "./Modal.css";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
-import { MdClose} from 'react-icons/md'
+import { MdClose } from "react-icons/md";
 
 const Background = styled.div`
   width: 100%;
@@ -70,9 +70,15 @@ export default function Modal({ modal, setModal }) {
         <Background>
           <ModalWrapper>
             <ModalContent>
-              <div>Hello</div>
-              Hi
-              <div></div>
+              <div>
+                <input> Username</input>
+
+                <input> Password</input>
+                <div>
+                  <button> Login</button>
+                  <button>Sign Up</button>
+                </div>
+              </div>
             </ModalContent>
             <CloseModalButton
               aria-label="Close modal"

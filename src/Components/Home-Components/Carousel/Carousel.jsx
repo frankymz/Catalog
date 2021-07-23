@@ -84,7 +84,7 @@ export default function Panel(props) {
   const [state, setState] = useState({
     products: [],
   });
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     Service.getBooksByGenre(genre).then((response) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +7,7 @@ import {
   useParams,
 } from "react-router-dom";
 import "./Category.css";
+import Title from "../../Components/General-Components/Navigation/Title";
 
 const dataSet = [
   {
@@ -85,6 +86,7 @@ export default function Category() {
   let { category } = useParams();
   return (
     <React.Fragment>
+      <Title title={`${category} Category`} />
       Category of book: {category}
       <div
         className="break"
@@ -97,9 +99,10 @@ export default function Category() {
         }}
       >
         {dataSet.map((data, i) => (
+          
           <Link
-            to={`/book/${i}`}
-            style={{ textDecoration: "none", padding: "20px" }}
+            to={`/book/${i}`} className="book"
+            style={{ textDecoration: "none", margin: "20px" , borderBottom:"1px solid" }}
           >
             <img
               key={i}
@@ -117,11 +120,12 @@ export default function Category() {
               {data.name}
             </div>
             <div style={{ color: "black" }}>By Filet Mignon</div>
-            <div style={{ display: "flex" }}>
-              <div style={{ marginTop: "2px" }}>2</div>
-              <div style={{ color: "#d4bc24" }}> &#9733;</div>
-            </div>
+            {/* <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "2px" }}>Average Rating:</div>
+              <div style={{ color: "#d4bc24" }}> 8.47</div>
+            </div> */}
           </Link>
+          
         ))}
       </div>
     </React.Fragment>

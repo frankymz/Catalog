@@ -66,7 +66,7 @@ export default function Nav() {
               </button>
             </Link>
 
-            <Link to="/Anime">
+            <Link to="/Manga">
               <button className="buttonStyle" style={{ marginRight: "20px" }}>
                 Manga{" "}
               </button>
@@ -88,8 +88,28 @@ export default function Nav() {
               </button>
             </Link>
           </div>
+          <div
+            style={{
+              alignItems: "right",
+              float: "right",
+              textAlign: "right",
+              marginRight: "20px",
+            }}
+          >
+            <Link to="/TopRated" style={{ marginLeft: "20px" }}>
+              <button className="buttonStyle">Top Rated</button>
+            </Link>
+
+            <Link to="/Authors" style={{ marginLeft: "20px" }}>
+              <button className="buttonStyle">Authors</button>
+            </Link>
+
+            <Link to="/list/:userid" style={{ marginLeft: "20px" }}>
+              <button className="buttonStyle">Your List</button>
+            </Link>
+          </div>
         </div>
-        <div
+        {/* <div
           style={{
             width: "1040px",
             borderBottom: "1px solid black",
@@ -102,7 +122,7 @@ export default function Nav() {
           }}
         >
           Welcome to Catalog!
-        </div>
+        </div> */}
       </div>
     </React.Fragment>
   );
