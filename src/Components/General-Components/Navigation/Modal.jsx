@@ -7,7 +7,7 @@ import { MdClose } from "react-icons/md";
 const Background = styled.div`
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -15,23 +15,14 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  height: 280px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 1);
   background: #fff;
   color: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   position: relative;
   z-index: 10;
-  border-radius: 10px;
-`;
-
-const ModalImg = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 0 0 10px;
-  background: #000;
+  border-radius: 5px;
 `;
 
 const ModalContent = styled.div`
@@ -55,10 +46,10 @@ const ModalContent = styled.div`
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   z-index: 10;
 `;
@@ -69,17 +60,59 @@ export default function Modal({ modal, setModal }) {
       {modal ? (
         <Background>
           <ModalWrapper>
-            <ModalContent>
-              <div>
-                <input> Username</input>
+            <div style={{ display: "flex", padding: "35px" }}>
+              <div style={{ margin: "auto", justifyContent: "center" }}>
+                <div
+                  className="font"
+                  style={{
+                    textAlign: "center",
+                    color: "#636363",
+                    fontSize: "26px",
+                  }}
+                >
+                  Member Login
+                </div>
 
-                <input> Password</input>
+                <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+                  <input
+                    type="text"
+                    size="25"
+                    placeholder="Username"
+                    className="input"
+                  />
+                </div>
                 <div>
-                  <button> Login</button>
-                  <button>Sign Up</button>
+                  <input
+                    type="text"
+                    size="25"
+                    placeholder="Password"
+                    className="input"
+                  />
+                </div>
+                <div
+                  style={{
+                    textAlign: "center",
+                    marginTop: "20px",
+                    justifyContent: "center",
+                    display: "flex",
+                  }}
+                >
+                  <div style={{ marginRight: "20px" }}>
+                    <button style={{ color: "#0096FF" }} className="button">
+                      Log in
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      style={{ background: " 	#0096FF", color: "white " }}
+                      className="button"
+                    >
+                      Sign up
+                    </button>
+                  </div>
                 </div>
               </div>
-            </ModalContent>
+            </div>
             <CloseModalButton
               aria-label="Close modal"
               onClick={() => setModal((prev) => !prev)}

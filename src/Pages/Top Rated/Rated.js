@@ -6,6 +6,7 @@ export default function Rated() {
     <React.Fragment>
         <Title title="Top 10 Rated Books"/>
       <div>yoooo wat it doo</div>
+      
     </React.Fragment>
   );
 }
