@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,21 +6,29 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
-import Cover from "../../Components/Book-Components/BookCover/Cover";
-import Description from "../../Components/Book-Components/BookDescription/Description";
 import Title from "../../Components/General-Components/Navigation/Title";
-/*
-Search for book by using the id.
-Output image, description, price
-*/
+import Service from "../../Service/Service";
+import "./Book.css";
+import ReadMoreReact from "read-more-react";
+
 const image =
   "https://prodimage.images-bn.com/pimages/9780060838676_p0_v1_s600x595.jpg";
 export default function Book() {
   let { bookid } = useParams();
+  const [book, setBook] = useState({
+    book: [],
+  });
+  useEffect(() => {
+    Service.getBookById(bookid).then((response) => {
+      setBook({ book: response.data });
+      console.log(book);
+    });
+  }, []);
+  
+
   return (
     <React.Fragment>
-      <Title title="A Beginner's Guide to Japan: Observations and Provocations" />
-      Book id: {bookid}
+      <Title title={`${book.book.name}`} />
       <div
         style={{
           margin: "auto",
@@ -31,11 +39,44 @@ export default function Book() {
         }}
       >
         <div style={{ position: "relative" }}>
-          <Cover />
+          <div>
+            <img
+              style={{
+                position: "relative",
+                zIndex: "-1",
+                width: "250px",
+                height: "auto",
+              }}
+              src={book.book.cover}
+            />
+          </div>
         </div>
         <div style={{ marginLeft: "150px" }}>
-          <Description />
-          <div style={{marginTop:"25px"}}>
+          <div className="title">{book.book.name}</div>
+          <div style={{ fontFamily: "sans-serif", paddingBottom: "10px" }}>
+            by {book.book.author}
+          </div>
+          <div
+            style={{
+              fontFamily: "sans-serif",
+              borderBottom: "1px solid gray",
+              paddingBottom: "20px",
+            }}
+          >
+            Average rating: {book.book.avg_rating}
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            {/* Try adding a loading screen for this to
+            not give an error */}
+            <ReadMoreReact
+              text={JSON.stringify(book.book.description)}
+              min={1}
+              ideal={100}
+              max={200}
+              readMoreText="read more"
+            />
+          </div>
+          <div style={{ marginTop: "25px" }}>
             <button>Save to your list</button>
           </div>
         </div>

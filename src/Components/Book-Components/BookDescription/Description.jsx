@@ -1,7 +1,7 @@
 import React from "react";
 import "./Description.css";
 
-export default function Description() {
+export default function Description(props) {
   return (
     <React.Fragment>
       <div className="title">

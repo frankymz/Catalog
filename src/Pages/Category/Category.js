@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import "./Category.css";
 import Title from "../../Components/General-Components/Navigation/Title";
+import Service from "../../Service/Service";
 
 const dataSet = [
   {
@@ -84,10 +85,20 @@ Object will have name, rating, image, and author
 
 export default function Category() {
   let { category } = useParams();
+  const [data, setData] = useState({
+    data: [],
+  });
+
+  useEffect(() => {
+    Service.getBooksByGenre(category).then((response) => {
+      setData({ data: response.data });
+      console.log(data);
+    });
+  }, [category]);
+
   return (
     <React.Fragment>
       <Title title={`${category} Category`} />
-      Category of book: {category}
       <div
         className="break"
         style={{
@@ -98,15 +109,20 @@ export default function Category() {
           width: "100%",
         }}
       >
-        {dataSet.map((data, i) => (
-          
+        {(data.data).map((data) => (
           <Link
-            to={`/book/${i}`} className="book"
-            style={{ textDecoration: "none", margin: "20px" , borderBottom:"1px solid" }}
+            to={`/book/${data.id}`}
+            className="book"
+            style={{
+              textDecoration: "none",
+              margin: "20px",
+              borderBottom: "1px solid",
+              maxWidth:"150px"
+            }}
           >
             <img
-              key={i}
-              src={data.image}
+              key={data.id}
+              src={data.cover}
               style={{ width: "150px", height: "auto" }}
             />
             <div
@@ -119,13 +135,8 @@ export default function Category() {
             >
               {data.name}
             </div>
-            <div style={{ color: "black" }}>By Filet Mignon</div>
-            {/* <div style={{ display: "flex" }}>
-              <div style={{ marginTop: "2px" }}>Average Rating:</div>
-              <div style={{ color: "#d4bc24" }}> 8.47</div>
-            </div> */}
+            <div style={{ color: "black" }}>By {data.author}</div>
           </Link>
-          
         ))}
       </div>
     </React.Fragment>

@@ -5,8 +5,7 @@ export default function Authors() {
   return (
     <React.Fragment>
       <Title title="Book Authors" />
-
-      <div>this the mf author page nigguh</div>
+      <div>this the mf author page</div>
     </React.Fragment>
   );
 }

@@ -5,9 +5,7 @@ export default function Cover(){
 
     return(
         <React.Fragment>
-            <div >
-                <img style={{position:"relative",zIndex:"-1",width:"250px", height:"auto"}} src={image}/>
-            </div>
+            
 
         </React.Fragment>
     )
