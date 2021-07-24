@@ -18,13 +18,18 @@ export default function Book() {
   const [book, setBook] = useState({
     book: [],
   });
+  const [isLoading, setLoading] = useState(true)
   useEffect(() => {
     Service.getBookById(bookid).then((response) => {
       setBook({ book: response.data });
       console.log(book);
+      setLoading(false)
     });
   }, []);
   
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <React.Fragment>
@@ -66,14 +71,12 @@ export default function Book() {
             Average rating: {book.book.avg_rating}
           </div>
           <div style={{ marginTop: "20px" }}>
-            {/* Try adding a loading screen for this to
-            not give an error */}
             <ReadMoreReact
               text={JSON.stringify(book.book.description)}
               min={1}
-              ideal={100}
-              max={200}
-              readMoreText="read more"
+              ideal={900}
+              max={900}
+              readMoreText="...read more"
             />
           </div>
           <div style={{ marginTop: "25px" }}>

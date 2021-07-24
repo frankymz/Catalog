@@ -91,7 +91,6 @@ export default function Panel(props) {
       setState({ books: response.data });
       setLoading(false);
     });
-    console.log("state.books is ", state.books);
   }, []);
 
   if (isLoading) {
