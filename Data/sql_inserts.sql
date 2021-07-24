@@ -523,23 +523,23 @@ INSERT INTO `geektext`.`user_shipping_address` (`user_id`,`address_id`) VALUES (
 
 -- user_book_review inserts
 
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (3,'9780062909879',4,'Seek article account hour million. Turn small research describe base detail yourself.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (3,'9781982151591',4,'Work chance image quite there many true follow. Your play themselves myself use act relationship.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (3,'9780345520814',1,'Off question source. Wrong section town deal movement out stay lot. Parent do ten after those scientist.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9780345804327',4,'Candidate whom gun list fall. Player contain year bill ok choose today. Source firm drug senior.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9781421585116',3,'Plan PM more heavy across while. Kid he weight before control board.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9780131103627',2,'Left despite boy without feeling participant interest seem. Question set discussion seven. Place again establish protect a.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9781594631931',1,'Decision black western myself scientist tough everything kind. Pick church recent high opportunity cause property. Place score design major maybe manage.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (5,'9780547345666',1,'Skill quite wife however. Law fund bill third some.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (6,'9781800207806',3,'Make article drop. Difficult president at. General professional career two.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (6,'9780593085387',3,'Bag down stock computer. What to sea. Collection bad until our per leader change.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (7,'9781783299034',3,'Join serious green foreign film. Action economy several hit simple personal home.\nLet stop camera report foreign agency list miss.\nNot girl above course.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9780131103627',4,'Support law Congress law enough we ask. But go computer pattern.\nLead network the many ball appear.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9781101971062',2,'Single city quite wall. Foreign agency when personal huge difficult player forget.\nDifficult there leg theory case north. Class on reach.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9781591167853',3,'Job trial four easy case member.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9781974702558',5,'American focus something who blood. Certain hotel should.',1);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (9,'9781593080273',5,'Must city system story century. While long not improve.\nLot sport father growth behind. Statement carry next according.',0);
-INSERT INTO `geektext`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (10,'9781593081430',4,'Help north friend state do. Go simple improve language thousand. If share land involve education little direction.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (3,'9780062909879',4,'Seek article account hour million. Turn small research describe base detail yourself.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (3,'9781982151591',4,'Work chance image quite there many true follow. Your play themselves myself use act relationship.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (3,'9780345520814',1,'Off question source. Wrong section town deal movement out stay lot. Parent do ten after those scientist.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9780345804327',4,'Candidate whom gun list fall. Player contain year bill ok choose today. Source firm drug senior.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9781421585116',3,'Plan PM more heavy across while. Kid he weight before control board.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9780131103627',2,'Left despite boy without feeling participant interest seem. Question set discussion seven. Place again establish protect a.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (4,'9781594631931',1,'Decision black western myself scientist tough everything kind. Pick church recent high opportunity cause property. Place score design major maybe manage.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (5,'9780547345666',1,'Skill quite wife however. Law fund bill third some.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (6,'9781800207806',3,'Make article drop. Difficult president at. General professional career two.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (6,'9780593085387',3,'Bag down stock computer. What to sea. Collection bad until our per leader change.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (7,'9781783299034',3,'Join serious green foreign film. Action economy several hit simple personal home.\nLet stop camera report foreign agency list miss.\nNot girl above course.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9780131103627',4,'Support law Congress law enough we ask. But go computer pattern.\nLead network the many ball appear.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9781101971062',2,'Single city quite wall. Foreign agency when personal huge difficult player forget.\nDifficult there leg theory case north. Class on reach.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9781591167853',3,'Job trial four easy case member.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (8,'9781974702558',5,'American focus something who blood. Certain hotel should.',1);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (9,'9781593080273',5,'Must city system story century. While long not improve.\nLot sport father growth behind. Statement carry next according.',0);
+INSERT INTO `books`.`user_book_review` (`user_id`,`book_id`,`rating`,`comment`,`is_anonymous`) VALUES (10,'9781593081430',4,'Help north friend state do. Go simple improve language thousand. If share land involve education little direction.',1);
 
 -- shopping_cart inserts
 
