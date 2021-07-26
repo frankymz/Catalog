@@ -2,6 +2,26 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navigation.css";
 import Modal from "./Modal";
+import LogoutButton from "../../Login-Register/LogoutButton";
+import LoginButton from "../../Login-Register/LoginButton";
+import RegisterButton from "../../Login-Register/RegisterButton";
+import { useAuth0 } from "@auth0/auth0-react";
+
+const AuthNav = () => {
+  const { isAuthenticated } = useAuth0();
+
+  return (
+    <div>
+      {isAuthenticated ? (
+        <LogoutButton />
+      ) : (
+        <div style={{alignItems:"center"}}>
+          <LoginButton /> <RegisterButton />
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function Nav() {
   const [modal, setModal] = useState(false);
@@ -33,9 +53,7 @@ export default function Nav() {
             Catalog
           </button>
           <div>
-            <button onClick={openModal} style={{ padding: "3px 5px" }}>
-              Login or Sign Up
-            </button>
+            <AuthNav />
           </div>
         </div>
         <div
@@ -109,20 +127,6 @@ export default function Nav() {
             </Link>
           </div>
         </div>
-        {/* <div
-          style={{
-            width: "1040px",
-            borderBottom: "1px solid black",
-            justifyContent: "center",
-            margin: "auto",
-            height: "25px",
-            alignItems: "center",
-            textAlign: "left",
-            fontSize: "20px",
-          }}
-        >
-          Welcome to Catalog!
-        </div> */}
       </div>
     </React.Fragment>
   );

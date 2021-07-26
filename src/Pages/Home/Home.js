@@ -3,14 +3,12 @@ import Panel from "../../Components/Home-Components/Carousel/Carousel";
 import "./Home.css";
 import LeaderBoard from "../../Components/Home-Components/Leaderboard/Leaderboard";
 import Title from "../../Components/General-Components/Navigation/Title";
+import HomeList from "../../Components/Home-Components/List/List";
 
 function Home() {
-  // const title = JSON.stringify(props)
-  // console.log('props is',props)
-  // console.log('title is',title)
   return (
     <React.Fragment>
-      <Title title="Welcome to Catalog!"/>
+      <Title title="Welcome to Catalog!" />
       <div
         style={{
           margin: "0 auto",
@@ -19,7 +17,13 @@ function Home() {
           marginTop: "20px",
         }}
       >
-        <div style={{ marginRight: "15px" }}>
+        <div
+          style={{
+            marginRight: "15px",
+            paddingRight: "15px",
+            borderRight: "1px solid #d1d1d1",
+          }}
+        >
           <Panel genre="Sci-fi" />
           <Panel genre="Fiction" />
           <Panel genre="Manga" />
@@ -31,6 +35,7 @@ function Home() {
           <LeaderBoard />
         </div>
       </div>
+      <HomeList />
     </React.Fragment>
   );
 }

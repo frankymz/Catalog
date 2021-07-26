@@ -4,7 +4,13 @@ export default function Footer() {
   return (
     <React.Fragment>
       <div
-        style={{ margin: "auto", justifyContent: "center", display: "flex", marginTop:"90px" }}
+        style={{
+          margin: "auto",
+          justifyContent: "center",
+          display: "flex",
+          bottom: 0,
+          marginTop: "90px",
+        }}
       >
         <div
           style={{
