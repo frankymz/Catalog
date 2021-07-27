@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./List.css";
+import Service from "../../../Service/Service";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function HomeList(props) {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
+  // probably wont upload user info to the home page
+  // change this to authors/recent comments
   if (!isAuthenticated) {
     return (
       <React.Fragment>
@@ -43,6 +46,7 @@ export default function HomeList(props) {
   }
   return (
     <React.Fragment>
+      
       <div
         style={{
           display: "flex",
@@ -62,7 +66,6 @@ export default function HomeList(props) {
 
         <hr style={{ width: "100%", height: "0.1px" }} />
       </div>
-      display user list here
     </React.Fragment>
   );
 }

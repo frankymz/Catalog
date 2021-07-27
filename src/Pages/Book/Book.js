@@ -25,18 +25,22 @@ export default function Book() {
     Service.getBookById(bookid).then((response) => {
       setBook({ book: response.data });
       setLoading(false);
+      
     });
   }, []);
-
+  
   useEffect(() => {
-    Service.getUserSavedByUserAndBook(user.nickname, bookid).then(
-      (response) => {
-        console.log(response);
-        if (response.data != "") {
-          setAlreadySaved(true);
+    if (isAuthenticated) {
+      Service.getUserSavedByUserAndBook(user.nickname, bookid).then(
+        (response) => {
+          console.log(response);
+          if (response.data != "") {
+            setAlreadySaved(true);
+          }
         }
-      }
-    );
+      );
+    }
+    
   }, [auth]);
 
   function handleSave() {
@@ -47,9 +51,11 @@ export default function Book() {
         bookid
       );
       setAlreadySaved(true);
-    } else {
+    } else if (isAuthenticated && alreadySaved) {
       // Tell user to sign up to save to a list
       console.log("its already saved pops");
+    } else {
+
     }
   }
 
@@ -105,11 +111,12 @@ export default function Book() {
               readMoreText="...read more"
             />
           </div>
-          <div style={{ marginTop: "25px", textAlign:"center" }}>
-          {alreadySaved ? (
+          <div style={{ marginTop: "25px", textAlign: "center" }}>
+            {alreadySaved ? (
               <button className="saved"> Book is already saved! </button>
             ) : (
-              <button className="saveButton"
+              <button
+                className="saveButton"
                 onClick={() => {
                   handleSave();
                 }}
