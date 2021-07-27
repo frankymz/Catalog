@@ -19,7 +19,6 @@ export default function Category() {
   useEffect(() => {
     Service.getBooksByGenre(category).then((response) => {
       setData({ data: response.data });
-      console.log(data);
     });
   }, [category]);
 

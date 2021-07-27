@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import Title from "../../Components/General-Components/Navigation/Title";
 import { useAuth0 } from "@auth0/auth0-react";
 
-require("dotenv").config();
-
 export default function UserList() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const vari = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -22,7 +20,7 @@ export default function UserList() {
   if (isAuthenticated) {
     return (
       <div>
-        <Title title={`${user.name}'s List`} />
+        <Title title={`${user.nickname}'s List`} />
         <div
           style={{
             display: "flex",

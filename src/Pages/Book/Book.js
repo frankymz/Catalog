@@ -10,23 +10,49 @@ import Title from "../../Components/General-Components/Navigation/Title";
 import Service from "../../Service/Service";
 import "./Book.css";
 import ReadMoreReact from "read-more-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const image =
-  "https://prodimage.images-bn.com/pimages/9780060838676_p0_v1_s600x595.jpg";
 export default function Book() {
+  const { user, isAuthenticated } = useAuth0();
+  const [auth, setAuth] = useState(isAuthenticated);
   let { bookid } = useParams();
   const [book, setBook] = useState({
     book: [],
   });
-  const [isLoading, setLoading] = useState(true)
+  const [alreadySaved, setAlreadySaved] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     Service.getBookById(bookid).then((response) => {
       setBook({ book: response.data });
-      console.log(book);
-      setLoading(false)
+      setLoading(false);
     });
   }, []);
-  
+
+  useEffect(() => {
+    Service.getUserSavedByUserAndBook(user.nickname, bookid).then(
+      (response) => {
+        console.log(response);
+        if (response.data != "") {
+          setAlreadySaved(true);
+        }
+      }
+    );
+  }, [auth]);
+
+  function handleSave() {
+    if (isAuthenticated && !alreadySaved) {
+      Service.postSavedBook(
+        Math.floor(Math.random() * 1000000) + 1,
+        user.nickname,
+        bookid
+      );
+      setAlreadySaved(true);
+    } else {
+      // Tell user to sign up to save to a list
+      console.log("its already saved pops");
+    }
+  }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -79,8 +105,18 @@ export default function Book() {
               readMoreText="...read more"
             />
           </div>
-          <div style={{ marginTop: "25px" }}>
-            <button>Save to your list</button>
+          <div style={{ marginTop: "25px", textAlign:"center" }}>
+          {alreadySaved ? (
+              <button className="saved"> Book is already saved! </button>
+            ) : (
+              <button className="saveButton"
+                onClick={() => {
+                  handleSave();
+                }}
+              >
+                Save to your list
+              </button>
+            )}
           </div>
         </div>
       </div>

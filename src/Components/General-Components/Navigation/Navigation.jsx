@@ -8,7 +8,7 @@ import RegisterButton from "../../Login-Register/RegisterButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const AuthNav = () => {
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <div>
@@ -24,6 +24,7 @@ const AuthNav = () => {
 };
 
 export default function Nav() {
+  const { user, isAuthenticated } = useAuth0();
   const [modal, setModal] = useState(false);
 
   function openModal() {
@@ -122,7 +123,7 @@ export default function Nav() {
               <button className="buttonStyle">Authors</button>
             </Link>
 
-            <Link to="/list/:userid" style={{ marginLeft: "20px" }}>
+            <Link to={`/list`} style={{ marginLeft: "20px" }}>
               <button className="buttonStyle">Your List</button>
             </Link>
           </div>
