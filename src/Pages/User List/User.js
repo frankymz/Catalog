@@ -91,9 +91,6 @@ export default function UserList() {
         }, 300);
       });
     });
-
-    // the indexes of both arrays dont match with object identities
-    //Service.deleteSavedBook(id.target.value);
   }
 
   if (loading) {

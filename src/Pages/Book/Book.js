@@ -11,6 +11,7 @@ import Service from "../../Service/Service";
 import "./Book.css";
 import ReadMoreReact from "read-more-react";
 import { useAuth0 } from "@auth0/auth0-react";
+import BookReviews from "../../Components/Book-Components/BookReviews/BookReviews";
 
 export default function Book() {
   const { user, isAuthenticated } = useAuth0();
@@ -25,10 +26,9 @@ export default function Book() {
     Service.getBookById(bookid).then((response) => {
       setBook({ book: response.data });
       setLoading(false);
-      
     });
   }, []);
-  
+
   useEffect(() => {
     if (isAuthenticated) {
       Service.getUserSavedByUserAndBook(user.nickname, bookid).then(
@@ -40,7 +40,6 @@ export default function Book() {
         }
       );
     }
-    
   }, [auth]);
 
   function handleSave() {
@@ -55,7 +54,6 @@ export default function Book() {
       // Tell user to sign up to save to a list
       console.log("its already saved pops");
     } else {
-
     }
   }
 
@@ -111,7 +109,14 @@ export default function Book() {
               readMoreText="...read more"
             />
           </div>
-          <div style={{ marginTop: "25px", textAlign: "center" }}>
+          <div
+            style={{
+              marginTop: "25px",
+              justifyContent: "center",
+              textAlign: "center",
+              display: "flex",
+            }}
+          >
             {alreadySaved ? (
               <button className="saved"> Book is already saved! </button>
             ) : (
@@ -124,9 +129,33 @@ export default function Book() {
                 Save to your list
               </button>
             )}
+            <div style={{ marginLeft: "40px" }}>
+              <button className="writebtn custom-btn">Write a Review</button>
+            </div>
           </div>
         </div>
       </div>
+      <div
+        style={{
+          padding: "50px",
+          margin: "auto",
+          maxWidth: "950px",
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+        }}
+      >
+        <hr />
+        <div
+          className="reviewTitle"
+          style={{ textAlign: "center", fontSize: "25px", width: "400px" }}
+        >
+          Book Reviews
+        </div>
+
+        <hr />
+      </div>
+      <BookReviews />
     </React.Fragment>
   );
 }
