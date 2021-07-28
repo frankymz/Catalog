@@ -15,8 +15,8 @@ import BookReviews from "../../Components/Book-Components/BookReviews/BookReview
 
 export default function Book() {
   const { user, isAuthenticated } = useAuth0();
-  const [auth, setAuth] = useState(isAuthenticated);
   let { bookid } = useParams();
+  const [auth, setAuth] = useState(isAuthenticated);
   const [book, setBook] = useState({
     book: [],
   });
