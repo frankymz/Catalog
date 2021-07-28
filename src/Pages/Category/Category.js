@@ -39,6 +39,7 @@ export default function Category() {
           <Link
             to={`/book/${data.id}`}
             className="book"
+            key={data.id}
             style={{
               textDecoration: "none",
               margin: "20px",

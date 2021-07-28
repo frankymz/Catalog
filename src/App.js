@@ -22,7 +22,12 @@ function App() {
           <Route exact strict path="/" component={Home} />
           <Route exact strict path="/TopRated" component={Rated} />
           <Route exact strict path="/Authors" component={Authors} />
-          <Route exact strict path="/list" component={UserList} />
+          <Route
+            strict
+            exact
+            path={["/list/", "/list/:nickname"]}
+            component={UserList}
+          />
           <Route exact strict path="/:category" component={Category} />
           <Route strict path="/book/:bookid" component={Book} />
           <Route component={FourOhFour} />

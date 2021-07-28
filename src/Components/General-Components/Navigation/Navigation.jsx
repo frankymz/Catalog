@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navigation.css";
 import Modal from "./Modal";
@@ -15,7 +15,7 @@ const AuthNav = () => {
       {isAuthenticated ? (
         <LogoutButton />
       ) : (
-        <div style={{alignItems:"center"}}>
+        <div style={{ alignItems: "center" }}>
           <LoginButton /> <RegisterButton />
         </div>
       )}
@@ -26,6 +26,13 @@ const AuthNav = () => {
 export default function Nav() {
   const { user, isAuthenticated } = useAuth0();
   const [modal, setModal] = useState(false);
+  const [nickname, setNickname] = useState("");
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setNickname(user.nickname);
+    }
+  }, [isAuthenticated]);
 
   function openModal() {
     setModal((prev) => !prev);
@@ -123,7 +130,7 @@ export default function Nav() {
               <button className="buttonStyle">Authors</button>
             </Link>
 
-            <Link to={`/list`} style={{ marginLeft: "20px" }}>
+            <Link to={`/list/${nickname}`} style={{ marginLeft: "20px" }}>
               <button className="buttonStyle">Your List</button>
             </Link>
           </div>
