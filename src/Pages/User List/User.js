@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  useLocation,
   Link,
   useParams,
 } from "react-router-dom";
@@ -24,6 +25,13 @@ export default function UserList() {
   });
   const [loading, setLoading] = useState(true);
   var { nickname } = useParams();
+
+  const location = useLocation();
+  useEffect(() => {
+    setSavedBooks({ saved: [] });
+    setSavedBookInfo({ books: [] });
+    bookArray = [];
+  }, [location]);
 
   async function getBooks() {
     const response = await Service.getUserSavedBooks(nickname);
@@ -45,7 +53,7 @@ export default function UserList() {
       setSavedBookInfo({ books: bookArray });
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 1000);
     }
   }, [savedBooks]);
 
@@ -70,8 +78,20 @@ export default function UserList() {
     );
   }
 
-  function handleDelete(id) {
-    console.log(id.target.value);
+  function handleDelete(bookValue) {
+    const obj = JSON.parse(bookValue.target.value);
+    const book = obj.id;
+    const name = obj.name;
+
+    Service.getUserSavedByUserAndBook(name, book).then((response) => {
+      const saveid = response.data.id;
+      Service.deleteSavedBook(saveid).then((res) => {
+        setTimeout(() => {
+          window.location.reload();
+        }, 300);
+      });
+    });
+
     // the indexes of both arrays dont match with object identities
     //Service.deleteSavedBook(id.target.value);
   }
@@ -101,13 +121,6 @@ export default function UserList() {
   return (
     <React.Fragment>
       <Title title={`${nickname}'s List`} />
-      <button
-        onClick={() => {
-          console.log(savedBookInfo.books);
-        }}
-      >
-        console
-      </button>
       <div
         style={{
           justifyContent: "center",
@@ -183,18 +196,16 @@ export default function UserList() {
               </div>
               <div style={{ textAlign: "right", alignItems: "center" }}>
                 <div style={{ margin: "20px" }}>
-                  <button
-                    className="reviewbtn"
-                    onClick={() =>
-                      (window.location = `http://localhost:3000/book/${data.id}`)
-                    }
-                  >
-                    Write a review
-                  </button>
+                  <Link to={`/book/${data.id}`}>
+                    <button className="reviewbtn">Write a review</button>
+                  </Link>
                 </div>
                 <div style={{ margin: "20px", textAlign: "center" }}>
                   <button
-                    value=""
+                    value={JSON.stringify({
+                      id: `${data.id}`,
+                      name: `${user.nickname}`,
+                    })}
                     onClick={(e) => handleDelete(e)}
                     className="deletebtn"
                   >
