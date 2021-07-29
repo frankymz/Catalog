@@ -18,6 +18,8 @@ export default function BookReviews() {
   const [reviewsPresent, setReviewsPresent] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  
+
   useEffect(() => {
     setLoading(true);
     Service.getReviewForBook(bookid).then((res) => {
@@ -43,9 +45,7 @@ export default function BookReviews() {
           There are no reviews for this book.
         </div>
 
-        <div>
-          
-        </div>
+        <div></div>
       </div>
     );
   }
@@ -70,7 +70,7 @@ export default function BookReviews() {
                 key={data.book}
                 style={{
                   display: "flex",
-                  
+
                   padding: "10px",
                   margin: "10px",
                 }}
@@ -79,7 +79,7 @@ export default function BookReviews() {
                   {data.user}
                 </div>
                 <div>
-                  <div>{data.rating}</div>
+                  <div>{data.rating} - {data.date}</div>
                   <div>{data.comment}</div>
                 </div>
               </div>

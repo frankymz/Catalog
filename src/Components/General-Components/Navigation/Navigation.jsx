@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navigation.css";
-import Modal from "./Modal";
 import LogoutButton from "../../Login-Register/LogoutButton";
 import LoginButton from "../../Login-Register/LoginButton";
 import RegisterButton from "../../Login-Register/RegisterButton";
@@ -25,7 +24,6 @@ const AuthNav = () => {
 
 export default function Nav() {
   const { user, isAuthenticated } = useAuth0();
-  const [modal, setModal] = useState(false);
   const [nickname, setNickname] = useState("");
 
   useEffect(() => {
@@ -34,13 +32,8 @@ export default function Nav() {
     }
   }, [isAuthenticated]);
 
-  function openModal() {
-    setModal((prev) => !prev);
-  }
-
   return (
     <React.Fragment>
-      <Modal modal={modal} setModal={setModal} />
       <div className="nav">
         <div
           style={{

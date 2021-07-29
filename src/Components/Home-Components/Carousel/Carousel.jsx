@@ -4,7 +4,6 @@ import Service from "../../../Service/Service";
 import "./Carousel.css";
 
 export default function Panel(props) {
-  // const genre = props.genre;
   const [genre] = useState(props.genre);
   const [state, setState] = useState({
     books: [],

@@ -3,6 +3,17 @@ import axios from "axios";
 const rest_api = "http://localhost:8090";
 
 class Service {
+  // Utility
+  getCurrentDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
+
+    today = mm + "/" + dd + "/" + yyyy;
+    return today;
+  }
+
   getBooks() {
     return axios.get(rest_api + "/books");
   }
@@ -47,13 +58,15 @@ class Service {
     return axios.get(rest_api + `/reviews/${book}`);
   }
 
-  postReview(id, name, review, rate, bookid) {
-    return axios.post(rest_api + "addReview", {
+  postReview(id, name, review, rate, bookid, day, reviewTitle) {
+    return axios.post(rest_api + "/addReview", {
       reviewid: id,
       user: name,
       comment: review,
       rating: rate,
       book: bookid,
+      date: day,
+      title: reviewTitle,
     });
   }
 }

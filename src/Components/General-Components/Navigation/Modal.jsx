@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Modal.css";
-import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
+import { useAuth0 } from "@auth0/auth0-react";
+import Service from "../../../Service/Service";
+import { useParams } from "react-router";
 
 const Background = styled.div`
   width: 100%;
@@ -12,11 +14,13 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateY(-150px);
+  z-index: 10;
 `;
 
 const ModalWrapper = styled.div`
-  width: 400px;
-  height: 280px;
+  width: 700px;
+  height: 500px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 1);
   background: #fff;
   color: #000;
@@ -55,9 +59,49 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export default function Modal({ modal, setModal }) {
+  const { user, isAuthenticated } = useAuth0();
+  let { bookid } = useParams();
+  const [review, setReview] = useState({
+    reviewid: "",
+    user: "",
+    comment: "",
+    rating: "",
+    book: bookid,
+    date: Service.getCurrentDate(),
+    title: "",
+  });
+
+  useEffect(() => {
+    setReview({ ...review, reviewid: Math.floor(Math.random() * 1000000) + 1 });
+  }, []);
+
+  useEffect(() => {
+    if (user != undefined) {
+      setReview({ ...review, user: user.nickname });
+    }
+  }, [user]);
+
+  function handleSubmit() {
+    console.log(review);
+    if (review.title != "" && review.rating != "" && review.comment != "") {
+      Service.postReview(
+        review.reviewid,
+        review.user,
+        review.comment,
+        review.rating,
+        review.book,
+        review.date,
+        review.title
+      ).then((res) => {
+        console.log(res);
+      });
+      setModal((prev) => !prev);
+    }
+  }
+
   return (
     <React.Fragment>
-      {modal ? (
+      {modal && isAuthenticated ? (
         <Background>
           <ModalWrapper>
             <div style={{ display: "flex", padding: "35px" }}>
@@ -70,23 +114,48 @@ export default function Modal({ modal, setModal }) {
                     fontSize: "26px",
                   }}
                 >
-                  Member Login
+                  Write a Review
                 </div>
 
                 <div style={{ marginBottom: "20px", marginTop: "20px" }}>
                   <input
                     type="text"
                     size="25"
-                    placeholder="Username"
+                    placeholder="Title"
                     className="input"
+                    onChange={(e) =>
+                      setReview({ ...review, title: e.target.value })
+                    }
                   />
                 </div>
+                <div style={{ marginBottom: "20px" }} className="select">
+                  <select
+                    onChange={(e) =>
+                      setReview({ ...review, rating: e.target.value })
+                    }
+                  >
+                    <option value="0">Rate this book</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
                 <div>
-                  <input
-                    type="text"
-                    size="25"
-                    placeholder="Password"
-                    className="input"
+                  <textarea
+                    placeholder="Write review here..."
+                    className="input ar"
+                    rows="7"
+                    cols="27"
+                    onChange={(e) =>
+                      setReview({ ...review, comment: e.target.value })
+                    }
                   />
                 </div>
                 <div
@@ -97,17 +166,13 @@ export default function Modal({ modal, setModal }) {
                     display: "flex",
                   }}
                 >
-                  <div style={{ marginRight: "20px" }}>
-                    <button style={{ color: "#0096FF" }} className="button">
-                      Log in
-                    </button>
-                  </div>
                   <div>
                     <button
                       style={{ background: " 	#0096FF", color: "white " }}
                       className="button"
+                      onClick={handleSubmit}
                     >
-                      Sign up
+                      Submit
                     </button>
                   </div>
                 </div>

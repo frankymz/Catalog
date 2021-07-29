@@ -12,6 +12,8 @@ import "./Book.css";
 import ReadMoreReact from "read-more-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import BookReviews from "../../Components/Book-Components/BookReviews/BookReviews";
+import Modal from "../../Components/General-Components/Navigation/Modal";
+import Tooltip from "@material-ui/core/Tooltip";
 
 export default function Book() {
   const { user, isAuthenticated } = useAuth0();
@@ -22,6 +24,9 @@ export default function Book() {
   });
   const [alreadySaved, setAlreadySaved] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [modal, setModal] = useState(false);
+  const [tool, setTool] = useState(false);
+
   useEffect(() => {
     Service.getBookById(bookid).then((response) => {
       setBook({ book: response.data });
@@ -50,10 +55,21 @@ export default function Book() {
         bookid
       );
       setAlreadySaved(true);
-    } else if (isAuthenticated && alreadySaved) {
+    } else if (!isAuthenticated && alreadySaved) {
       // Tell user to sign up to save to a list
-      console.log("its already saved pops");
+      console.log("sign up pops");
     } else {
+    }
+  }
+
+  const handleTooltipClose = () => {
+    setTool(false);
+  };
+
+  function openModal() {
+    setModal((prev) => !prev);
+    if (!isAuthenticated) {
+      setTool(true);
     }
   }
 
@@ -63,6 +79,7 @@ export default function Book() {
 
   return (
     <React.Fragment>
+      <Modal modal={modal} setModal={setModal} />
       <Title title={`${book.book.name}`} />
       <div
         style={{
@@ -129,8 +146,23 @@ export default function Book() {
                 Save to your list
               </button>
             )}
-            <div style={{ marginLeft: "40px" }}>
-              <button className="writebtn custom-btn">Write a Review</button>
+            <div style={{ marginLeft: "40px", zIndex: "0.1" }}>
+              {isAuthenticated ? (
+                <button onClick={openModal} className="writebtn custom-btn">
+                  Write a Review
+                </button>
+              ) : (
+                <Tooltip
+                  disableFocusListener
+                  disableTouchListener
+                  placement="top"
+                  title="Sign in first"
+                >
+                  <button onClick={openModal} style={{cursor:"unset"}} className="writebtn custom-btn">
+                    Write a Review
+                  </button>
+                </Tooltip>
+              )}
             </div>
           </div>
         </div>
@@ -148,13 +180,19 @@ export default function Book() {
         <hr />
         <div
           className="reviewTitle"
-          style={{ textAlign: "center", fontSize: "25px", width: "400px" }}
+          style={{
+            zIndex: "-1",
+            textAlign: "center",
+            fontSize: "25px",
+            width: "400px",
+          }}
         >
           Book Reviews
         </div>
 
         <hr />
       </div>
+
       <BookReviews />
     </React.Fragment>
   );
