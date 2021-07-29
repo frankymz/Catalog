@@ -3,7 +3,7 @@ import "./Modal.css";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
-import Service from "../../../Service/Service";
+import Service from "../../../API/Service";
 import { useParams } from "react-router";
 
 const Background = styled.div`

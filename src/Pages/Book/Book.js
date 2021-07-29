@@ -7,7 +7,7 @@ import {
   useParams,
 } from "react-router-dom";
 import Title from "../../Components/General-Components/Navigation/Title";
-import Service from "../../Service/Service";
+import Service from "../../API/Service";
 import "./Book.css";
 import ReadMoreReact from "read-more-react";
 import { useAuth0 } from "@auth0/auth0-react";
