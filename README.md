@@ -1,4 +1,4 @@
-Learning Spring with JPA/Hibernate. Will add the URI's in the future.
+Project is almost complete, will be uploading a video demo to show all of the features soon.
 
 # Book Catalog API Model URI's
 
