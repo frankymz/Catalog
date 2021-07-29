@@ -50,6 +50,3 @@ Interface
 
 
 
-https://user-images.githubusercontent.com/63214442/127376151-6c4c4592-6d49-4adb-b64b-87f97e81c942.mp4
-
-
