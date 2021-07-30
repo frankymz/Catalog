@@ -3,9 +3,10 @@ import Panel from "../../Components/Home-Components/Carousel/Carousel";
 import "./Home.css";
 import LeaderBoard from "../../Components/Home-Components/Leaderboard/Leaderboard";
 import Title from "../../Components/General-Components/Navigation/Title";
-import HomeList from "../../Components/Home-Components/List/List";
-
+import Service from "../../API/Service";
+import RecentReviews from "../../Components/Home-Components/List/RecentReviews";
 function Home() {
+  
   return (
     <React.Fragment>
       <Title title="Welcome to Catalog!" />
@@ -35,7 +36,7 @@ function Home() {
           <LeaderBoard />
         </div>
       </div>
-      <HomeList />
+      <RecentReviews />
     </React.Fragment>
   );
 }

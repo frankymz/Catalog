@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Title from "../../Components/General-Components/Navigation/Title";
 import { useAuth0 } from "@auth0/auth0-react";
-import Service from "../../Service/Service";
+import Service from "../../API/Service";
 import {
   BrowserRouter as Router,
   Switch,

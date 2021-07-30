@@ -55,11 +55,7 @@ export default function Book() {
         bookid
       );
       setAlreadySaved(true);
-    } else if (!isAuthenticated && alreadySaved) {
-      // Tell user to sign up to save to a list
-      console.log("sign up pops");
-    } else {
-    }
+    } 
   }
 
   const handleTooltipClose = () => {

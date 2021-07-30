@@ -61,6 +61,7 @@ const CloseModalButton = styled(MdClose)`
 export default function Modal({ modal, setModal }) {
   const { user, isAuthenticated } = useAuth0();
   let { bookid } = useParams();
+  const [rend, setRend] = useState(4)
   const [review, setReview] = useState({
     reviewid: "",
     user: "",
@@ -96,6 +97,7 @@ export default function Modal({ modal, setModal }) {
         console.log(res);
       });
       setModal((prev) => !prev);
+      window.location.reload()
     }
   }
 

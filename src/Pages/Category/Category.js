@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import "./Category.css";
 import Title from "../../Components/General-Components/Navigation/Title";
-import Service from "../../Service/Service";
+import Service from "../../API/Service";
 
 export default function Category() {
   let { category } = useParams();
@@ -20,6 +20,7 @@ export default function Category() {
     Service.getBooksByGenre(category).then((response) => {
       setData({ data: response.data });
     });
+    
   }, [category]);
 
   return (
@@ -35,7 +36,7 @@ export default function Category() {
           width: "100%",
         }}
       >
-        {(data.data).map((data) => (
+        {data.data.map((data) => (
           <Link
             to={`/book/${data.id}`}
             className="book"
@@ -44,7 +45,7 @@ export default function Category() {
               textDecoration: "none",
               margin: "20px",
               borderBottom: "1px solid",
-              maxWidth:"150px"
+              maxWidth: "150px",
             }}
           >
             <img

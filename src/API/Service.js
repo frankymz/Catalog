@@ -10,7 +10,7 @@ class Service {
     var mm = String(today.getMonth() + 1).padStart(2, "0");
     var yyyy = today.getFullYear();
 
-    today = mm + "/" + dd + "/" + yyyy;
+    today = mm + "-" + dd + "-" + yyyy;
     return today;
   }
 
@@ -56,6 +56,10 @@ class Service {
   // user book reviews
   getReviewForBook(book) {
     return axios.get(rest_api + `/reviews/${book}`);
+  }
+
+  getReviewsByDate() {
+    return axios.get(rest_api + `/review/${this.getCurrentDate()}`);
   }
 
   postReview(id, name, review, rate, bookid, day, reviewTitle) {

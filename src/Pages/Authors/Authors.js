@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Title from "../../Components/General-Components/Navigation/Title";
-import Service from "../../Service/Service";
+import Service from "../../API/Service";
 
 export default function Authors() {
   

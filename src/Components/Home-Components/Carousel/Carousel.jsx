@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import Service from "../../../Service/Service";
+import Service from "../../../API/Service";
 import "./Carousel.css";
 
 export default function Panel(props) {
