@@ -58,46 +58,44 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-export default function Modal({ modal, setModal }) {
+export default function Modal({ modal, setModal }, props) {
   const { user, isAuthenticated } = useAuth0();
   let { bookid } = useParams();
-  const [rend, setRend] = useState(4)
+
   const [review, setReview] = useState({
     reviewid: "",
-    user: "",
     comment: "",
     rating: "",
     book: bookid,
-    date: Service.getCurrentDate(),
     title: "",
+    cover: "",
   });
 
   useEffect(() => {
-    setReview({ ...review, reviewid: Math.floor(Math.random() * 1000000) + 1 });
+    Service.getBookById(bookid).then((res) => {
+      setReview({
+        ...review,
+        cover: `${res.data.cover}`,
+        reviewid: Math.floor(Math.random() * 1000000) + 1,
+      });
+    });
   }, []);
 
-  useEffect(() => {
-    if (user != undefined) {
-      setReview({ ...review, user: user.nickname });
-    }
-  }, [user]);
-
   function handleSubmit() {
-    console.log(review);
     if (review.title != "" && review.rating != "" && review.comment != "") {
       Service.postReview(
         review.reviewid,
-        review.user,
+        user.nickname,
         review.comment,
         review.rating,
         review.book,
-        review.date,
-        review.title
-      ).then((res) => {
-        console.log(res);
-      });
+        review.title,
+        review.cover
+      );
       setModal((prev) => !prev);
-      window.location.reload()
+      setTimeout(() => {
+        //window.location.reload();
+      }, 300);
     }
   }
 

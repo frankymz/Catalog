@@ -38,7 +38,6 @@ export default function Book() {
     if (isAuthenticated) {
       Service.getUserSavedByUserAndBook(user.nickname, bookid).then(
         (response) => {
-          console.log(response);
           if (response.data != "") {
             setAlreadySaved(true);
           }
@@ -55,7 +54,7 @@ export default function Book() {
         bookid
       );
       setAlreadySaved(true);
-    } 
+    }
   }
 
   const handleTooltipClose = () => {
@@ -73,9 +72,11 @@ export default function Book() {
     return <div>Loading...</div>;
   }
 
+  
+
   return (
     <React.Fragment>
-      <Modal modal={modal} setModal={setModal} />
+      <Modal modal={modal} setModal={setModal} cover={book.book.cover} />
       <Title title={`${book.book.name}`} />
       <div
         style={{
@@ -154,7 +155,11 @@ export default function Book() {
                   placement="top"
                   title="Sign in first"
                 >
-                  <button onClick={openModal} style={{cursor:"unset"}} className="writebtn custom-btn">
+                  <button
+                    onClick={openModal}
+                    style={{ cursor: "unset" }}
+                    className="writebtn custom-btn"
+                  >
                     Write a Review
                   </button>
                 </Tooltip>

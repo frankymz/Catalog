@@ -14,6 +14,10 @@ class Service {
     return today;
   }
 
+  
+
+  // Books
+
   getBooks() {
     return axios.get(rest_api + "/books");
   }
@@ -62,7 +66,8 @@ class Service {
     return axios.get(rest_api + `/review/${this.getCurrentDate()}`);
   }
 
-  postReview(id, name, review, rate, bookid, day, reviewTitle) {
+  postReview(id, name, review, rate, bookid, reviewTitle, cover) {
+    const day = this.getCurrentDate();
     return axios.post(rest_api + "/addReview", {
       reviewid: id,
       user: name,
@@ -71,6 +76,7 @@ class Service {
       book: bookid,
       date: day,
       title: reviewTitle,
+      bookcover: cover,
     });
   }
 }

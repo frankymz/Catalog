@@ -64,10 +64,10 @@ export default function BookReviews() {
           }}
         >
           {reviews.comments.map((data) => (
-            <div>
+            <div key={data.book}>
               <hr />
               <div
-                key={data.book}
+                
                 style={{
                   display: "flex",
 
