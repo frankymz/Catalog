@@ -1,51 +1,68 @@
+View the Service.js file in the src/API folder to see how these were implemented.
 
-# Book Catalog API Model URI's
 
-## Home
+## Model URIs
 
-1. GET /api/books/{genere}
+### Books
 
-2. GET /api/list/{user}
+#### GET 
 
-and possibly
+/books : get all books
 
-GET /api/books and make components that sort by rating and price
+/bookById/{id} : get book by id
 
-Interface:
+/book/{name} : get book by name
 
-/home
+/books/{genre} : get list of books by genre
 
-/home/{user}
+#### POST
 
-## Categories
+/addBook : add a book
 
-1. GET /api/books/{genre}
+/addBooks : add multiple books
 
-Interface:
+#### PUT
 
-/home/page?category={genre} or /home/category/{genre}
+/update : update a book
 
-## Book Details
+#### DELETE
 
-1. GET /api/books/{id}
+/delete/{id} : delete a book by id
 
-2. POST /api/list/{user}
+### Book Reviews
 
-Interface:
+#### GET
 
-/home/book/{id}
+/reviews/{book} :  gets list of reviews for a book
 
-## Personal List
+/review/{date} : gets list of reviews from a certain day
 
-Full list
+#### POST
 
-1. GET /api/list/{user}
+/addReview : adds a review 
 
-2. DELETE /api/list/{user}
+### Users
 
-Interface
+#### POST
 
-/home/list/{user}
+/addUser : adds a user
 
+### User Saved Books
+
+#### GET
+
+/userSaved/{user}/{book} : get user by username and book
+
+/userSaved : get list of all saved books by all users
+
+/userSaves/{user} : get list of books saved by a certain user
+
+#### POST
+
+/addUserSave : add a user saved book
+
+#### DELETE
+
+/deleteById/{id} : delete a user saved book by id
 
 
