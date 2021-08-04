@@ -1,4 +1,4 @@
-View the Service.js file in the src/API folder to see how these were implemented.
+View the Service.js file in the src/API folder to see how these were implemented. The Actual API is here: https://github.com/frankymz/databaseAPI.
 
 
 ## Model URIs
