@@ -117,7 +117,7 @@ export default function UserList() {
 
   return (
     <React.Fragment>
-      <Title title={`${nickname}'s List`} />
+      <Title title={`${nickname}'s Wish List`} />
       <div
         style={{
           justifyContent: "center",
@@ -186,18 +186,18 @@ export default function UserList() {
                 src={data.cover}
                 style={{ width: "100px", marginRight: "40px" }}
               />
-              <div style={{ marginRight: "40px" }}>
+              <div style={{ marginRight: "40px", textAlign:"left" }}>
                 <div>{data.name}</div>
                 <div>By {data.author} </div>
-                <div>Average Rating: {data.avg_rating} </div>
+                <div>Average Rating: {data.avgRating} </div>
               </div>
-              <div style={{ textAlign: "right", alignItems: "center" }}>
+              <div style={{ textAlign: "center", alignItems: "center" }}>
                 <div style={{ margin: "20px" }}>
-                  <Link to={`/book/${data.id}`}>
+                  <Link to={`/book/${data.id}`} >
                     <button className="reviewbtn">Write a review</button>
                   </Link>
                 </div>
-                <div style={{ margin: "20px", textAlign: "center" }}>
+                <div style={{ margin: "20px" }}>
                   <button
                     value={JSON.stringify({
                       id: `${data.id}`,

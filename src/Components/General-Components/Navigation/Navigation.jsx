@@ -119,12 +119,8 @@ export default function Nav() {
               <button className="buttonStyle">Top Rated</button>
             </Link>
 
-            <Link to="/Authors" style={{ marginLeft: "20px" }}>
-              <button className="buttonStyle">Authors</button>
-            </Link>
-
             <Link to={`/list/${nickname}`} style={{ marginLeft: "20px" }}>
-              <button className="buttonStyle">Your List</button>
+              <button className="buttonStyle">Your Wish List</button>
             </Link>
           </div>
         </div>
