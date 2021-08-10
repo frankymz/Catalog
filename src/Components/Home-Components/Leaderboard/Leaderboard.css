@@ -1,6 +1,16 @@
-
-
-.boardGroup{
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap');
+.boardGroup {
     font-family: 'Roboto', sans-serif, Arial;
     font-weight: 550;
+}
+
+.boardFont {
+    font-family: 'Hind Siliguri', sans-serif;
+}
+.link:link{
+    line-height: 0.5;
+    text-decoration: none;
+}
+.link:hover{
+    text-decoration: underline;
 }

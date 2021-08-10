@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap');
+
+.fontTag{
+    font-family: 'Noto Serif SC', serif;
+}
+
+
+.viewButton{
+
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 0px;
+    padding: 12px 8px;
+    
+    
+    border: none;
+    color: #fff;
+    background-color: rgb(88, 101, 242);
+    transition: background-color .17s ease,color .17s ease;
+    
+
+}
+.viewButton:hover {
+    background-color: rgb(71, 82, 196);
+}

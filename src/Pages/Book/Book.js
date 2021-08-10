@@ -112,7 +112,7 @@ export default function Book() {
               paddingBottom: "20px",
             }}
           >
-            Average rating: {book.book.avg_rating}
+            Average rating: {book.book.avgRating}
           </div>
           <div style={{ marginTop: "20px" }}>
             <ReadMoreReact

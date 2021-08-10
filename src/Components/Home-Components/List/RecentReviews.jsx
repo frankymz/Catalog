@@ -2,13 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./List.css";
 import Service from "../../../API/Service";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useParams,
 } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 
 var name = "";
 export default function RecentReviews() {

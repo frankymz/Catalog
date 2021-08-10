@@ -29,24 +29,6 @@ const ModalWrapper = styled.div`
   border-radius: 5px;
 `;
 
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.8;
-  color: #141414;
-  p {
-    margin-bottom: 1rem;
-  }
-  button {
-    padding: 10px 24px;
-    background: #141414;
-    color: #fff;
-    border: none;
-  }
-`;
-
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
@@ -58,7 +40,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-export default function Modal({ modal, setModal }, props) {
+export default function Modal({ modal, setModal }) {
   const { user, isAuthenticated } = useAuth0();
   let { bookid } = useParams();
 
@@ -82,7 +64,7 @@ export default function Modal({ modal, setModal }, props) {
   }, []);
 
   function handleSubmit() {
-    if (review.title != "" && review.rating != "" && review.comment != "") {
+    if (review.title !== "" && review.rating !== "" && review.comment !== "") {
       Service.postReview(
         review.reviewid,
         user.nickname,
@@ -94,7 +76,7 @@ export default function Modal({ modal, setModal }, props) {
       );
       setModal((prev) => !prev);
       setTimeout(() => {
-        //window.location.reload();
+        window.location.reload();
       }, 300);
     }
   }

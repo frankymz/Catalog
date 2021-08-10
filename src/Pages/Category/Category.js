@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
   useParams,
 } from "react-router-dom";
@@ -51,7 +48,7 @@ export default function Category() {
             <img
               key={data.id}
               src={data.cover}
-              style={{ width: "150px", height: "auto" }}
+              style={{ width: "150px", height: "auto", height:"200px" }}
             />
             <div
               style={{
@@ -63,7 +60,7 @@ export default function Category() {
             >
               {data.name}
             </div>
-            <div style={{ color: "black" }}>By {data.author}</div>
+            <div style={{ color: "black", fontWeight:"400", fontSize:"14px" }}>By {data.author}</div>
           </Link>
         ))}
       </div>

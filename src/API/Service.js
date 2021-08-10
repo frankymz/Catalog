@@ -76,7 +76,7 @@ class Service {
       book: bookid,
       date: day,
       title: reviewTitle,
-      bookcover: cover,
+      bookcover: cover
     });
   }
 }

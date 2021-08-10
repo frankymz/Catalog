@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Service from "../../../API/Service";
 import "./BookReviews.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 
 export default function BookReviews() {
@@ -18,8 +12,6 @@ export default function BookReviews() {
   const [reviewsPresent, setReviewsPresent] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  
-
   useEffect(() => {
     setLoading(true);
     Service.getReviewForBook(bookid).then((res) => {
@@ -29,6 +21,7 @@ export default function BookReviews() {
         setReviewsPresent(false);
       }
     });
+    console.log(reviews);
     setLoading(false);
   }, []);
 
@@ -64,10 +57,9 @@ export default function BookReviews() {
           }}
         >
           {reviews.comments.map((data) => (
-            <div key={data.book}>
+            <div key={data.book} className="styleFont">
               <hr />
               <div
-                
                 style={{
                   display: "flex",
 
@@ -75,11 +67,28 @@ export default function BookReviews() {
                   margin: "10px",
                 }}
               >
-                <div style={{ maxWidth: "200px", width: "100%" }}>
+                <div
+                  style={{
+                    maxWidth: "200px",
+                    width: "100%",
+                    fontWeight: "600",
+                  }}
+                >
                   {data.user}
                 </div>
                 <div>
-                  <div>{data.rating} - {data.date}</div>
+                  <div style={{fontSize:"12px"}}>
+                    Rating: {data.rating} • On {data.date}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "600",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    {data.title}{" "}
+                  </div>
                   <div>{data.comment}</div>
                 </div>
               </div>

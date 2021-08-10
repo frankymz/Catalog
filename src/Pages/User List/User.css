@@ -2,38 +2,44 @@
 
 .reviewbtn {
     display: inline-block;
-    outline: 0;
-    border: 0;
-    background-image: linear-gradient(to right, #3ec7e0, #526bf4);
+    outline: none;
     cursor: pointer;
-    border-radius: 2px;
-    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
     font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
-    height: 25px;
-    padding: 0 10px;
-    font-size: 9px;
+    line-height: 0px;
+    padding: 12px 8px;
+    
+    
+    border: none;
+    color: #fff;
+    background-color: rgb(88, 137, 242);
+    transition: background-color .17s ease,color .17s ease;
 }
 
 .reviewbtn:hover {
-    background-image: linear-gradient(to right, #e052a0, #f15c41);
+    background-color: rgb(71, 104, 196);
 }
 
 .deletebtn {
     display: inline-block;
     outline: none;
-    text-transform: uppercase;
     cursor: pointer;
-    font-size: 11px;
-    
+    border-radius: 3px;
+    font-size: 14px;
     font-weight: 500;
-    border-radius: 2px;
-    padding: 4px 16px;
+    line-height: 0px;
+    padding: 12px 8px;
+    
+    
     border: none;
-    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-    background: linear-gradient(to right, rgb(226, 176, 188) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
     color: #fff;
+    background-color: rgb(242, 88, 88);
+    transition: background-color .17s ease,color .17s ease;
+}
+
+.deletebtn:hover{
+    background-color: rgb(196, 71, 71);
 }
 
 .rowdiv:hover{

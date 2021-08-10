@@ -6,7 +6,6 @@ import Title from "../../Components/General-Components/Navigation/Title";
 import Service from "../../API/Service";
 import RecentReviews from "../../Components/Home-Components/List/RecentReviews";
 function Home() {
-  
   return (
     <React.Fragment>
       <Title title="Welcome to Catalog!" />
@@ -32,7 +31,7 @@ function Home() {
           <Panel genre="Literature" />
           <Panel genre="Science" />
         </div>
-        <div>
+        <div className="ratedDiv">
           <LeaderBoard />
         </div>
       </div>
