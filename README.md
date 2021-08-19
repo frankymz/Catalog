@@ -1,5 +1,9 @@
 The RESTful API I made is here: https://github.com/frankymz/databaseAPI. View the Service.js file here in the src/API folder to see how these were implemented. 
 
+The project is not yet meant to be ran from another device as the data on MySQL Workbench is not accessible remotely as of now.
+
+
+
 
 ## Model URIs
 
