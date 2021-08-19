@@ -2,7 +2,7 @@ The RESTful API I made is here: https://github.com/frankymz/databaseAPI. View th
 
 The project is not yet meant to be ran from another device as the data on MySQL Workbench is not accessible remotely as of now.
 
-The client side project structure is a Pages folder and a Components folder.
+The client side project structure is a Pages folder and a Components folder inside of src.
 
 
 ## Model URIs
