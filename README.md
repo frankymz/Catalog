@@ -5,6 +5,12 @@ The project is not yet meant to be ran from another device as the data on MySQL 
 The client side project structure is a Pages folder and a Components folder inside of src.
 
 
+
+https://user-images.githubusercontent.com/63214442/130716224-1a093820-17dd-4238-8a14-31a0efea7ff4.mp4
+
+
+
+
 ## Model URIs
 
 ### Books
