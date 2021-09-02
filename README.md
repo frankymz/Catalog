@@ -33,7 +33,7 @@ https://user-images.githubusercontent.com/63214442/130716224-1a093820-17dd-4238-
 
 #### PUT
 
-/update : update a book
+/update : update book
 
 #### DELETE
 
