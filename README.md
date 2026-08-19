@@ -1,6 +1,4 @@
-React.js frontend, Spring Boot REST API, MySQL database.
-
-The RESTful API I made is here: https://github.com/frankymz/databaseAPI.
+The REST API I made with Spring Boot is here: https://github.com/frankymz/databaseAPI.
 
 https://user-images.githubusercontent.com/63214442/130716224-1a093820-17dd-4238-8a14-31a0efea7ff4.mp4
 
