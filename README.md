@@ -1,10 +1,6 @@
-The RESTful API I made is here: https://github.com/frankymz/databaseAPI. View the Service.js file here in the src/API folder to see how these were implemented. 
+React.js frontend, Spring Boot REST API, MySQL database.
 
-The project is not yet meant to be ran from another device as the data on MySQL Workbench is not accessible remotely as of now.
-
-The client side project structure is a Pages folder and a Components folder inside of src.
-
-
+The RESTful API I made is here: https://github.com/frankymz/databaseAPI.
 
 https://user-images.githubusercontent.com/63214442/130716224-1a093820-17dd-4238-8a14-31a0efea7ff4.mp4
 
